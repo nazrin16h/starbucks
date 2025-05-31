@@ -3,7 +3,7 @@ import { MdOutlineClose } from "react-icons/md";
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { IoMdMenu } from "react-icons/io";
 import { MdLocationPin } from "react-icons/md";
-import Logo from './Logo';
+import Logo from '../../Logo';
 
 function Header() {
     const [activeIndex, setActiveIndex] = useState(null);
@@ -16,7 +16,7 @@ function Header() {
                 <div className="container flex justify-between h-16 mx-auto">
                     <div className="flex">
                         <div className='w-[64px] h-[64px]'>
-                            <Logo />
+                            <Logo/>
                         </div>
                         <ul className="items-stretch hidden  lg:flex text-[15px] font-bold uppercase">
                             {menuItems.map((item, i) => (
