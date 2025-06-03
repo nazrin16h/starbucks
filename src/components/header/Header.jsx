@@ -12,11 +12,11 @@ function Header() {
     const menuItems = ["Menu", "REWARDS", "GIFT CARDS"];
     return (
         <div className='font-helvetica' >
-            <header className="fixed top-0 w-full p-4 z-[9999]  dark:text-gray-800" style={{ boxShadow: '0 2px 5px -1px rgba(0, 0, 0, 0.2)' }}>
+            <header className="relative  top-0 left-0 w-full p-4 z-50   dark:text-gray-800" style={{ boxShadow: '0 2px 5px -1px rgba(0, 0, 0, 0.2)' }}>
                 <div className="container flex justify-between h-16 mx-auto">
                     <div className="flex">
                         <div className='w-[64px] h-[64px]'>
-                            <Logo/>
+                            <Logo />
                         </div>
                         <ul className="items-stretch hidden  lg:flex text-[15px] font-bold uppercase">
                             {menuItems.map((item, i) => (
@@ -47,8 +47,8 @@ function Header() {
                         <button type="button" className="px-4 py-1 font-semibold rounded-full bg-gray-950 dark:text-gray-100 hover:bg-gray-600 transition duration-300">Join now </button>
                     </div>
                     {/* Menyu düyməsi */}
-                    <button onClick={() => setIsOpen(!isOpen)} className="md:hidden  duration-300 transition-[max-height]  ease-[cubic-bezier(0.17,0.67,0.83,0.67)]" >
-                        {isOpen ? <MdOutlineClose size={26} /> : <IoMdMenu size={24} />
+                    <button onClick={() => setIsOpen(!isOpen)} className="md:hidden  duration-300 transition-[max-height]  " >
+                        {isOpen ? '' : <IoMdMenu size={24} />
                         }
                     </button>
                 </div>
@@ -57,10 +57,19 @@ function Header() {
             <div>
                 {
                     <div
-                        className={`lg:hidden fixed top-24 right-0 h-full w-64  bg-white  p-4 z-50 transform transition-transform duration-400  ease-in-out
+                        className={`lg:hidden fixed top-0 pt-[100px] right-0 w-74 h-full bg-white z-50  p-4  transform transition-transform duration-400  ease-in-out
                     ${isOpen ? "translate-x-0" : "translate-x-full"}`}>
 
                         <div className="flex flex-col items-start gap-y-4 p-4 top-10 fixed ">
+                            <div className="flex flex-col items-end gap-y-4 p-4 top-4 right-4 fixed">
+                                <button
+                                    onClick={() => setIsOpen(!isOpen)}
+                                    className="md:hidden duration-300 transition-[max-height] ease-[cubic-bezier(0.17,0.67,0.83,0.67)]"
+                                >
+                                    {isOpen ? <MdOutlineClose size={26} /> : ''}
+                                </button>
+                            </div>
+
                             <ul className="space-y-6 font-medium ">
                                 <li><a href="#">Menu</a></li>
                                 <li><a href="#">Rewards</a></li>
