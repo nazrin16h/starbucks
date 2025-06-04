@@ -1,4 +1,4 @@
-const FeaturePage = ({ image, title, text, buttonText, reverse, bgColor, textColor,hoverBg }) => {
+const MenuFeaturePage = ({ image, title, text, buttonText, reverse, bgColor, textColor,hoverBg }) => {
     return (
         <div className={`flex flex-col md:flex-row  ${reverse ? 'md:flex-row-reverse' : ''} items-center ${bgColor} , ${textColor}`}>
             <div className="w-full md:w-1/2 ">
@@ -17,4 +17,4 @@ const FeaturePage = ({ image, title, text, buttonText, reverse, bgColor, textCol
     );
 };
 
-export default FeaturePage;
+export default MenuFeaturePage;

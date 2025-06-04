@@ -1,4 +1,3 @@
-import React from 'react'
 import FeaturePage from './FeaturePage'
 import summerImg from "../../assets/main-img/summer.webp";
 import cofeImg from "../../assets/main-img/cofe.webp";
@@ -71,10 +70,10 @@ const Main = () => {
 
             />
 
-            <div className='lg:w-[725px] m-auto mb-30 font- text-center px-5  font-helvetica ' >
+            <div className='px-[16px] md:max-w-[700px] mx-auto text-[14px] leading-[1.8] font-medium py-[32px] text-center' >
                 <p>*Valid for new Starbucks Rewards members for 7 days from sign up. Coupon will be available in the offers tab of your Starbucks app following sign up and may take up to 48 hours to arrive. Good at participating U.S. stores for a handcrafted menu-sized beverage with qualifying purchase ($8 max value). Qualifying purchase excludes alcohol, Starbucks Card and Card reloads. Limit one. Cannot be combined with other offers or discounts. Excludes delivery services. Sign up before 6/29/2025.</p>
             </div>
-            <div className='lg:w-[725px] m-auto mb-10  mt-20 text-center px-5 font-medium font-helvetica'>
+            <div className='px-[16px] md:max-w-[700px] mx-auto text-[14px] leading-[1.8] font-medium py-[32px] text-center'>
                 <p>**Free refills of hot and iced brewed coffee or tea during same store visit. Excludes Cold Brew, Nitro Cold Brew, Iced Tea Lemonade, and flavored Iced Tea and Starbucks Refreshers® base. At participating stores. Visit <a href="">starbucks.com/refills</a> to learn more.</p>
             </div>
         </div>

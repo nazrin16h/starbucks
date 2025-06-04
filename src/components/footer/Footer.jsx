@@ -13,7 +13,7 @@ const AccordionItem = ({ title, children }) => {
     const [open, setOpen] = useState(false);
 
     return (
-        <div className="border-t border-gray-200">
+        <div className="border-t-2  border-gray-200">
             <button
                 onClick={() => setOpen((prev) => !prev)}
                 className="w-full flex justify-between items-center py-4 text-sm font-medium text-gray-900 hover:text-gray-700 focus:outline-none"
@@ -37,8 +37,8 @@ const AccordionItem = ({ title, children }) => {
 
 function Footer() {
     return (
-        <div>
-            <footer className="bg-white">
+        <div className="border-t-1 border-gray-300" >
+            <footer className="bg-white lg:w-[1135px] mx-auto ">
                 <div className="mx-auto w-full max-w-screen-xl">
                     <div className="md:hidden">
                         <AccordionItem title="About Us">

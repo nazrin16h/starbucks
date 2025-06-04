@@ -1,41 +1,62 @@
 import React, { useState } from 'react'
 import { MdOutlineClose } from "react-icons/md";
-import { FaBars, FaTimes } from 'react-icons/fa';
 import { IoMdMenu } from "react-icons/io";
 import { MdLocationPin } from "react-icons/md";
 import Logo from '../../Logo';
+import { Link } from 'react-router-dom';
+
 
 function Header() {
     const [activeIndex, setActiveIndex] = useState(null);
     const [isOpen, setIsOpen] = useState(false)
 
-    const menuItems = ["Menu", "REWARDS", "GIFT CARDS"];
     return (
         <div className='font-helvetica' >
-            <header className="relative  top-0 left-0 w-full p-4 z-50   dark:text-gray-800" style={{ boxShadow: '0 2px 5px -1px rgba(0, 0, 0, 0.2)' }}>
+            <header className="relative  top-0 left-0 w-full p-4 z-50 
+            dark:text-gray-800" style={{ boxShadow: '0 2px 5px -1px rgba(0, 0, 0, 0.2)' }}>
                 <div className="container flex justify-between h-16 mx-auto">
                     <div className="flex">
                         <div className='w-[64px] h-[64px]'>
                             <Logo />
                         </div>
-                        <ul className="items-stretch hidden  lg:flex text-[15px] font-bold uppercase">
-                            {menuItems.map((item, i) => (
-                                <li key={i} className="inline-block items-center mt-5">
-                                    <a
-                                        href="#"
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            setActiveIndex(i);
-                                        }}
-                                        className={`px-2 pl-6 pb-2 hover:text-[#00754A] block ${activeIndex === i
-                                            ? "border-b-[6px] border-[#006241]  pb-[32px]"
-                                            : ""
-                                            }`}>
-                                        {item}
-                                    </a>
-                                </li>
-                            ))}
+                        <ul className=".header-lists items-stretch hidden lg:flex text-[15px] font-bold uppercase">
+                            <li className="inline-block items-center mt-5">
+                                <Link
+                                    to="/menu"
+                                    className={`pl-6 pb-2 hover:text-[#00754A] block ${activeIndex === 0 ? "border-b-[6px] border-[#006241] pb-[32px]" : ""
+                                        }`}
+                                    onClick={() => {
+                                        setActiveIndex(0);
+                                    }}>
+                                    Menu
+                                </Link>
+                            </li>
+
+                            <li className="inline-block items-center mt-5">
+                                <Link
+                                    to="/rewards"
+                                    className={`px-2 pl-8 pb-2 hover:text-[#00754A] block ${activeIndex === 1 ? "border-b-[6px] border-[#006241] pb-[32px]" : ""
+                                        }`}
+                                    onClick={() => {
+                                        setActiveIndex(1);
+                                    }}>
+                                    Rewards
+                                </Link>
+                            </li>
+
+                            <li className="inline-block items-center mt-5">
+                                <Link
+                                    to="/giftCards"
+                                    className={`px-2 pl-6 pb-2 hover:text-[#00754A] block ${activeIndex === 2 ? "border-b-[6px] border-[#006241] pb-[32px]" : ""
+                                        }`}
+                                    onClick={() => {
+                                        setActiveIndex(2);
+                                    }}>
+                                    Gift Cards
+                                </Link>
+                            </li>
                         </ul>
+
 
                     </div>
                     <div className="items-center gap-5 flex-shrink-0 hidden lg:flex">

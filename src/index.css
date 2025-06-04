@@ -2,3 +2,7 @@
 .font-helvetica{
     font-family: "Helvetica Neue", Helvetica, "Segoe UI", sans-serif;
 }
+.header-lists .active {
+    box-shadow: rgb(0, 117, 74) 0px -6px inset;
+    padding-bottom: 34px;
+}

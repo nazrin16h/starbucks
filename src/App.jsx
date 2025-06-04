@@ -1,14 +1,36 @@
-import React from 'react'
 import Header from './components/header/Header'
 import Main from './components/main/Main'
 import Footer from './components/footer/Footer'
+import { Route, Routes } from 'react-router-dom'
+import MenuPage from './components/menu/MenuPage'
+import RewardsPage from './components/menu/RewardsPage'
+import GiftCardsPage from './components/menu/GiftCardsPage'
+import PrevPage from './components/menu/PrevPage'
+import FavPage from './components/menu/FavPage'
+import MenuFeaturePage from './components/menu/MenuFeaturePage'
+import Mapsection from './components/menu/Mapsection'
+import DeliverySection from './components/menu/DeliverySection'
 
 function App() {
   return (
-    <div className='flex flex-col'>
-      <Header/>
-      <Main/>
-      <Footer/>
+    <div className=' flex flex-col min-h-screen'>
+      <Header />
+
+      <main className="flex-grow">
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/menu" element={<MenuPage />} />
+          <Route path="/rewards" element={<RewardsPage />} />
+          <Route path="/giftCards" element={<GiftCardsPage />} />
+          <Route path="/previousPage" element={<PrevPage />} />
+          <Route path="/favouritePage" element={<FavPage />} />
+          <Route path="/feature" element={<MenuFeaturePage />} />
+          <Route path="/mapSection" element={<Mapsection />} />
+          <Route path="/delivery" element={<DeliverySection />} />
+        </Routes>
+      </main>
+
+      <Footer />
     </div>
   )
 }
