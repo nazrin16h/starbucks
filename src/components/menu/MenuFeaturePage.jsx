@@ -1,4 +1,3 @@
-import MenuNavBar from "./MenuNavBar";
 import boble from "../../assets/menu-img/boble.jpg";
 import creamcofe from "../../assets/menu-img/creamcofe.webp";
 import icedcofe from "../../assets/menu-img/icedcofe.jpg";
@@ -12,7 +11,6 @@ const FeaturePage = () => {
 
                 <h1 className="text-center text-2xl font-bold mb-10 text-[#1e3932] text-[29px] lg:text-[45px]">See you on the patio</h1>
 
-                {/* 1-ci Blok */}
                 <div className="flex flex-col md:flex-row mb-6">
                     <div className="md:w-1/2">
                         <img src={boble} alt="Summer-Berry" className="w-full h-full object-cover" />
@@ -31,7 +29,6 @@ const FeaturePage = () => {
                     </div>
                 </div>
 
-                {/* 2-ci Blok */}
                 <div className="flex flex-col md:flex-row-reverse mb-6">
                     <div className="md:w-1/2">
                         <img src={creamcofe} alt="Horchata Espresso" className="w-full h-full object-cover" />
@@ -84,7 +81,6 @@ const FeaturePage = () => {
                     </div>
                 </div>
 
-                {/* Eyni qaydada digər kartları da əlavə edə bilərsən */}
             </div>
         </div>
     );
