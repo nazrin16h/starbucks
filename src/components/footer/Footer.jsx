@@ -38,7 +38,7 @@ const AccordionItem = ({ title, children }) => {
 function Footer() {
     return (
         <div className="border-t-1 border-gray-300" >
-            <footer className="bg-white lg:w-[1135px] mx-auto ">
+            <footer className="bg-white lg:w-full  mx-auto ">
                 <div className="mx-auto w-full max-w-screen-xl">
                     <div className="md:hidden">
                         <AccordionItem title="About Us">
@@ -187,7 +187,7 @@ function Footer() {
                         </AccordionItem>
                     </div>
 
-                    <div className="hidden md:grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-5">
+                    <div className="hidden md:grid grid-cols-2 gap-15 px-4 py-6 lg:py-8 md:grid-cols-5 ">
                         <div>
                             <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase">
                                 About Us
@@ -358,7 +358,7 @@ function Footer() {
                             </ul>
                         </div>
                     </div>
-                    <hr className="text-gray-300 " />
+                    <hr className="text-gray-300  container " />
 
 
 
