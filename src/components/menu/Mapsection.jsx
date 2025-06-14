@@ -1,4 +1,3 @@
-import React from 'react'
 import { GoSearch } from "react-icons/go";
 import { useNavigate } from 'react-router-dom';
 
@@ -24,7 +23,7 @@ function Mapsection() {
                             placeholder="Find a store"
                             className="w-[300px] border-b-2 border-gray-300 py-2 pl-2 focus:outline-none"
                         />
-                        <div className="absolute right-25 top-2">
+                        <div className="absolute right-25 top-13">
                             <GoSearch />
                         </div>
                     <button className="px-5 py-2 mt-10 border border-green-700 text-green-700 rounded-full mb-6">

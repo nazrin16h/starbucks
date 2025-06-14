@@ -1,8 +1,61 @@
 @import "tailwindcss";
-.font-helvetica{
+
+.font-helvetica {
     font-family: "Helvetica Neue", Helvetica, "Segoe UI", sans-serif;
 }
+
 .header-lists .active {
     box-shadow: rgb(0, 117, 74) 0px -6px inset;
-    padding-bottom: 34px;
+    padding-bottom: 35px;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    background-color: white;
+    /* Arxa fon */
+    color: black;
+    /* Icon rəngi */
+    border-radius: 50%;
+    /* Dairə forması */
+    width: 50px !important;
+    /* eni */
+    height: 50px !important;
+    /* hündürlüyü */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7) !important;
+    /* kölgə (opsional) */
+
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    font-size: 10px !important;
+    /* icon ölçüsü */
+    color: black;
+    /* icon rəngi */
+}
+
+.swiper-container-wrapper {
+    position: relative;
+}
+
+.swiper-overlay-left,
+.swiper-overlay-right {
+    position: absolute;
+    top: 0;
+    width: 160px;  /* Buranı öz swiper ölçüsünə görə dəyişə bilərsən */
+    height: 100%;
+    z-index: 10;
+    pointer-events: none; /* Altındakı swiper kliklərinə mane olmasın */
+    background-color: rgba(255, 255, 255, 0.7); /* Şəffaf ağ div */
+}
+
+.swiper-overlay-left {
+    left: 0;
+}
+
+.swiper-overlay-right {
+    right: 0;
 }

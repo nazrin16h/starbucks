@@ -1,14 +1,31 @@
-import React, { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { MdOutlineClose } from "react-icons/md";
 import { IoMdMenu } from "react-icons/io";
 import { MdLocationPin } from "react-icons/md";
 import Logo from '../../Logo';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 function Header() {
     const [activeIndex, setActiveIndex] = useState(null);
-    const [isOpen, setIsOpen] = useState(false)
+    const [isOpen, setIsOpen] = useState(false);
+    const navigate = useNavigate();
+    const menuRef = useRef(null);
+
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (menuRef.current && !menuRef.current.contains(event.target)) {
+                setIsOpen(false);
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
+
 
     return (
         <div className='font-helvetica' >
@@ -19,11 +36,11 @@ function Header() {
                         <div className='w-[64px] h-[64px]'>
                             <Logo />
                         </div>
-                        <ul className=".header-lists items-stretch hidden lg:flex text-[15px] font-bold uppercase">
-                            <li className="inline-block items-center mt-5">
+                        <ul className=".header-lists items-stretch hidden lg:flex text-[15px] gap-5 font-bold uppercase">
+                            <li className="inline-block items-center mt-5 pl-6">
                                 <Link
                                     to="/menu"
-                                    className={`pl-6 pb-2 hover:text-[#00754A] block ${activeIndex === 0 ? "border-b-[6px] border-[#006241] pb-[32px]" : ""
+                                    className={` pb-2 hover:text-[#00754A] block ${activeIndex === 0 ? "border-b-[6px] border-[#006241] pb-[32px]" : ""
                                         }`}
                                     onClick={() => {
                                         setActiveIndex(0);
@@ -35,7 +52,7 @@ function Header() {
                             <li className="inline-block items-center mt-5">
                                 <Link
                                     to="/rewards"
-                                    className={`px-2 pl-8 pb-2 hover:text-[#00754A] block ${activeIndex === 1 ? "border-b-[6px] border-[#006241] pb-[32px]" : ""
+                                    className={`px-2 pb-2 hover:text-[#00754A] block ${activeIndex === 1 ? "border-b-[6px] border-[#006241] pb-[32px]" : ""
                                         }`}
                                     onClick={() => {
                                         setActiveIndex(1);
@@ -47,7 +64,7 @@ function Header() {
                             <li className="inline-block items-center mt-5">
                                 <Link
                                     to="/giftCards"
-                                    className={`px-2 pl-6 pb-2 hover:text-[#00754A] block ${activeIndex === 2 ? "border-b-[6px] border-[#006241] pb-[32px]" : ""
+                                    className={`px-2  pb-2 hover:text-[#00754A] block ${activeIndex === 2 ? "border-b-[6px] border-[#006241] pb-[32px]" : ""
                                         }`}
                                     onClick={() => {
                                         setActiveIndex(2);
@@ -78,8 +95,9 @@ function Header() {
             <div>
                 {
                     <div
-                        className={`lg:hidden fixed top-0 pt-[100px] right-0 w-74 h-full bg-white z-50  p-4  transform transition-transform duration-400  ease-in-out
-                    ${isOpen ? "translate-x-0" : "translate-x-full"}`}>
+                        ref={menuRef}
+                        className={`lg:hidden fixed top-0 pt-[100px] right-0 w-74 h-full bg-white z-60  p-4  transform transition-transform duration-400  ease-in-out
+                        ${isOpen ? "translate-x-0" : "translate-x-full"}`}>
 
                         <div className="flex flex-col items-start gap-y-4 p-4 top-10 fixed ">
                             <div className="flex flex-col items-end gap-y-4 p-4 top-4 right-4 fixed">
@@ -92,9 +110,21 @@ function Header() {
                             </div>
 
                             <ul className="space-y-6 font-medium ">
-                                <li><a href="#">Menu</a></li>
-                                <li><a href="#">Rewards</a></li>
-                                <li><a href="#">Gift Cards</a></li>
+                                <li><Link
+                                    to="/menu"
+                                    onClick={() => {
+                                        setActiveIndex(0);
+                                    }}>Menu</Link></li>
+                                <li><Link
+                                    to="/rewards"
+                                    onClick={() => {
+                                        setActiveIndex(0);
+                                    }}>Rewards</Link></li>
+                                <li><Link
+                                    to="/giftCards"
+                                    onClick={() => {
+                                        setActiveIndex(0);
+                                    }}>Gift Cards</Link></li>
                             </ul>
 
                             <hr className="w-full border-gray-300" />
@@ -115,7 +145,7 @@ function Header() {
 
                             <div className="flex items-center space-x-2 hover:text-[#00754A] cursor-pointer">
                                 <MdLocationPin size={25} />
-                                <span className="font-bold">Find a store</span>
+                                <span className="font-bold" onClick={() => navigate("/mapSection")}>Find a store</span>
                             </div>
                         </div>
                     </div>
