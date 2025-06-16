@@ -5,7 +5,7 @@ import Footer from '../footer/Footer'
 
 function Menu() {
     return (
-        <div>
+        <div className='min-h-screen'>
             <Header/>
             <MenuPage/>
             <Footer/>

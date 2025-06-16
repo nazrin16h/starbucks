@@ -12,29 +12,20 @@
 .swiper-button-next,
 .swiper-button-prev {
     background-color: white;
-    /* Arxa fon */
     color: black;
-    /* Icon rəngi */
     border-radius: 50%;
-    /* Dairə forması */
     width: 50px !important;
-    /* eni */
     height: 50px !important;
-    /* hündürlüyü */
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7) !important;
-    /* kölgə (opsional) */
-
 }
 
 .swiper-button-next::after,
 .swiper-button-prev::after {
-    font-size: 10px !important;
-    /* icon ölçüsü */
+    font-size: 15px !important;
     color: black;
-    /* icon rəngi */
 }
 
 .swiper-container-wrapper {
@@ -45,17 +36,93 @@
 .swiper-overlay-right {
     position: absolute;
     top: 0;
-    width: 160px;  /* Buranı öz swiper ölçüsünə görə dəyişə bilərsən */
+    width: 200px;
     height: 100%;
     z-index: 10;
-    pointer-events: none; /* Altındakı swiper kliklərinə mane olmasın */
-    background-color: rgba(255, 255, 255, 0.7); /* Şəffaf ağ div */
+    pointer-events: none;
+    /* Altındakı swiper kliklərinə mane olmasın */
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+
+
+.swiper-overlay-left,
+.swiper-overlay-right {
+    position: absolute;
+    top: 0;
+    width: 160px;
+    height: 100%;
+    z-index: 10;
+    pointer-events: none;
 }
 
 .swiper-overlay-left {
     left: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.9), transparent) !important;
 }
 
 .swiper-overlay-right {
     right: 0;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0.9), transparent);
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    z-index: 40 !important;
+}
+
+/* Swiper default oxları üçün */
+.swiper-button-next,
+.swiper-button-prev {
+    width: 30px;
+    height: 30px;
+    color: black;
+    background-color: white;
+    border-radius: 9999px;
+    /* tam dairə */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    top: 66% !important;
+    /* orta nöqtədən bir az yuxarı */
+    transform: translateY(-50%);
+    right: 100px !important;
+
+}
+
+/* Iconu kiçilt */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    font-size: 16px !important;
+}
+
+.swiper-button-next {
+    right: 100px !important;
+}
+
+.swiper-button-prev {
+    left: 100px !important;
+}
+
+
+/* Responsive olaraq mobil üçün daha kiçik */
+@media (max-width: 640px) {
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        width: 30px !important;
+        height: 30px !important;
+        top: 82% !important;
+    }
+
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+        font-size: 13px !important;
+    }
+
+    .swiper-button-next {
+        right: 10px !important;
+    }
+
+    .swiper-button-prev {
+        left: 10px !important;
+    }
 }
