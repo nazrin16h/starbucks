@@ -3,7 +3,7 @@ import Main from './components/main/Main'
 import Footer from './components/footer/Footer'
 import { Route, Routes } from 'react-router-dom'
 import MenuPage from './components/menu/MenuPage'
-import RewardsPage from './components/menu/rewards/RewardsPage'
+import RewardsPage from './components/rewards/RewardsPage'
 import GiftCardsPage from './components/giftCards/GiftCardsPage'
 import PrevPage from './components/menu/PrevPage'
 import FavPage from './components/menu/FavPage'
@@ -12,7 +12,7 @@ import Mapsection from './components/menu/Mapsection'
 import DeliverySection from './components/menu/DeliverySection'
 import GiftSeeAll from './components/giftCards/GiftSeeAll'
 import GiftEcard from './components/giftCards/GiftEcard'
-import CategoryContent from './components/menu/CategoryContent'
+import ProductPage from './components/menu/Details/ProductPage'
 
 function App() {
   return (
@@ -32,7 +32,8 @@ function App() {
           <Route path="/delivery" element={<DeliverySection />} />
           <Route path="/see-all" element={<GiftSeeAll />} />
           <Route path="/Ecard" element={<GiftEcard />} />
-          <Route path="/menu/:category/:subcategory" element={<CategoryContent />} />
+          <Route path="/menu/:name/:subname" element={<MenuPage />} />
+          {/* <Route path="/menu/:category/:subcategory/:productId" element={<ProductPage />} /> */}
         </Routes>
       </main>
 
