@@ -1,5 +1,5 @@
 import fav from "../../assets/menu-img/fav-tapes.png";
-import LocationSelect from "./LocationSelect";
+import LocationSelect from "./StoreSelect";
 import MenuNavBar from "./MenuNavBar";
 const FavPage = () => {
     return (

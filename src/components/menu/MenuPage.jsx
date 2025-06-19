@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
 import { getMenu } from '../../services/api';
 import MenuNavBar from './MenuNavBar';
-import LocationSelect from './LocationSelect';
 import { Link, useParams } from 'react-router-dom';
+import StoreSelect from './StoreSelect';
+import { Helmet } from 'react-helmet';
 
 function MenuPage() {
     const [data, setData] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState(null);
     const { name, subname } = useParams();
-    
 
     useEffect(() => {
         getMenu().then(res => setData(res));
@@ -25,7 +25,6 @@ function MenuPage() {
 
             if (subCategory) return setSelectedCategory(subCategory);
 
-            // 3-cü səviyyə yoxlanır
             for (let child of category.children) {
                 const deeper = child.children?.find(
                     deep => deep.name.toLowerCase() === subname.toLowerCase()
@@ -41,6 +40,37 @@ function MenuPage() {
 
     return (
         <div className='min-h-screen'>
+            {/* Helmet: SEO və brauzer title üçün */}
+            <Helmet>
+                <title>
+                    {selectedCategory
+                        ? `${selectedCategory.name} - Starbucks Menu`
+                        : 'Menu - Starbucks'}
+                </title>
+                <meta
+                    name="description"
+                    content={
+                        selectedCategory
+                            ? `Explore ${selectedCategory.name} drinks and products at Starbucks.`
+                            : 'Explore the full Starbucks menu and discover your favorites.'
+                    }
+                />
+                <meta
+                    property="og:title"
+                    content={
+                        selectedCategory
+                            ? `${selectedCategory.name} - Starbucks`
+                            : 'Starbucks Menu'
+                    }
+                />
+                <meta
+                    property="og:image"
+                    content={
+                        selectedCategory?.categoryImageURL || '/default-og.jpg'
+                    }
+                />
+            </Helmet>
+
             <MenuNavBar />
             <div className='lg:flex lg:flex-row gap-28 container lg:w-[1200px] lg:px-12 pl-3 h-full mx-auto'>
 
@@ -80,8 +110,18 @@ function MenuPage() {
                                             {(child.products || []).map((product, i) => (
                                                 <div key={i} className='mx-1 mb-5'>
                                                     <Link
-                                                        // to={`/menu/${category.slug}/${subcategory.slug}/${product.id}`}
-                                                        className="block hover:underline"
+                                                        to={`/menu/product/${child.name.toLowerCase()}/${product.productNumber}`}
+                                                        state={{
+                                                            product: {
+                                                                name: product.name,
+                                                                imageURL: product.imageURL,
+                                                                size: product.sizes?.[0]?.sizeCode || "Grande",
+                                                                sizes: product.sizes,
+                                                                uri: product.uri,
+
+                                                            },
+                                                        }}
+                                                        className="block"
                                                     >
 
                                                         <div className='w-30 h-30 overflow-hidden rounded-full'>
@@ -92,7 +132,7 @@ function MenuPage() {
                                                             />
                                                         </div>
                                                         <div className='w-[180px]'>
-                                                            <p className='mt-2  font-medium text-[20px] w-[200px]'>{product.name}</p>
+                                                            <p className='mt-2 font-medium text-[20px] w-[200px]'>{product.name}</p>
                                                         </div>
                                                     </Link>
                                                 </div>
@@ -123,7 +163,6 @@ function MenuPage() {
 
                         </div>
                     ) : (
-                        // Heç bir kateqoriya seçilməyibsə, ana menyunu göstər
                         data.map((item, i) => (
                             <div key={i}>
                                 <h2 className='mt-8 font-bold lg:text-[24px] text-[20px]'>{item.name}</h2>
@@ -151,7 +190,8 @@ function MenuPage() {
                     )}
                 </div>
             </div>
-            <LocationSelect />
+
+            <StoreSelect />
         </div>
     );
 }

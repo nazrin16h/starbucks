@@ -1,5 +1,5 @@
 import prev from "../../assets/menu-img/moon-phases.gif";
-import LocationSelect from "./LocationSelect";
+import LocationSelect from "./StoreSelect";
 import MenuNavBar from "./MenuNavBar";
 const PrevPage = () => {
 

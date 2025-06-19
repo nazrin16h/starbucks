@@ -13,6 +13,7 @@ import DeliverySection from './components/menu/DeliverySection'
 import GiftSeeAll from './components/giftCards/GiftSeeAll'
 import GiftEcard from './components/giftCards/GiftEcard'
 import ProductPage from './components/menu/Details/ProductPage'
+import ScrollToTop from './components/ScrollToTop'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Header />
 
       <main className="flex-grow">
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/menu" element={<MenuPage />} />
@@ -33,7 +35,9 @@ function App() {
           <Route path="/see-all" element={<GiftSeeAll />} />
           <Route path="/Ecard" element={<GiftEcard />} />
           <Route path="/menu/:name/:subname" element={<MenuPage />} />
-          {/* <Route path="/menu/:category/:subcategory/:productId" element={<ProductPage />} /> */}
+          <Route path="/menu/product/:subcategory/:productNumber" element={<ProductPage />} />
+
+
         </Routes>
       </main>
 

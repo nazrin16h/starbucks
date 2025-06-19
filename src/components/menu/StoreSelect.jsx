@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 
-function LocationSelect() {
+function StoreSelect() {
     const navigate = useNavigate();
     
     return (
@@ -39,4 +39,4 @@ function LocationSelect() {
     )
 }
 
-export default LocationSelect
+export default StoreSelect
