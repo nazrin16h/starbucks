@@ -13,6 +13,7 @@ import DeliverySection from './components/menu/DeliverySection'
 import GiftSeeAll from './components/giftCards/GiftSeeAll'
 import GiftEcard from './components/giftCards/GiftEcard'
 import ProductPage from './components/menu/Details/ProductPage'
+import Basket from './components/menu/Basket'
 import ScrollToTop from './components/ScrollToTop'
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
           <Route path="/Ecard" element={<GiftEcard />} />
           <Route path="/menu/:name/:subname" element={<MenuPage />} />
           <Route path="/menu/product/:subcategory/:productNumber" element={<ProductPage />} />
+          <Route path="/basket" element={<Basket />} />
 
 
         </Routes>

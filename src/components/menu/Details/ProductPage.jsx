@@ -11,13 +11,31 @@ import ventiActive from '../../../assets/cups/ventiactive.svg';
 import { useParams } from "react-router-dom";
 import StoreSelect from "../StoreSelect";
 import { SlLocationPin } from "react-icons/sl";
+import { useBasket } from "../../../context/BasketContext";
 
 export default function ProductPage() {
+    const { basketItems, addToBasket } = useBasket();
     const { id, subcategory } = useParams();
     const { state } = useLocation();
     const { product } = state || {};
     const defaultSize = product?.sizes?.find(s => s.sizeCode === "Grande")?.sizeCode || product?.sizes?.[0]?.sizeCode;
     const [selectedSize, setSelectedSize] = useState(defaultSize);
+
+    const totalQuantity = basketItems.reduce((sum, item) => sum + item.quantity, 0);
+    const selectedSizeObj = product.sizes?.find(s => s.sizeCode === selectedSize);
+
+    const handleAddToBasket = () => {
+        if (!product || !selectedSizeObj) return;
+
+        addToBasket({
+            id: product.productNumber + "-" + selectedSizeObj.sizeCode, // unikallıq üçün ölçünü də əlavə et
+            name: product.name,
+            price: selectedSizeObj.price,
+            size: selectedSizeObj.sizeCode,
+            image: product.imageURL,
+        });
+    };
+
 
     if (!product) return <p>Product not found.</p>;
 
@@ -132,7 +150,15 @@ export default function ProductPage() {
                             ✨ Customize
                         </button>
                     </div>
+
+
                 </div>
+                <button
+                    onClick={handleAddToBasket}
+                    className="bg-[#00754A] hover:bg-green-800 fixed bottom-30  right-0 z-120  text-white  rounded-full shadow-md text-lg font-bold w-50 h-12"
+                >
+                    Add to Order
+                </button>
 
                 <div className="bg-[#1E3932] text-white px-6 mt-10 py-10">
                     <div className="text-sm mb-4">
@@ -157,11 +183,7 @@ export default function ProductPage() {
                 </div>
 
 
-                <div className="fixed bottom-6 right-6 left-6 lg:right-6 lg:left-auto max-w-[400px] mx-auto lg:mx-0">
-                    <button className="bg-[#00754A] hover:bg-green-800 text-white px-6 py-3 rounded-full shadow-md text-lg font-bold w-full">
-                        Add to Order
-                    </button>
-                </div>
+
             </div>
             <StoreSelect />
         </div>

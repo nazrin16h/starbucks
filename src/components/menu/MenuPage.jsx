@@ -4,6 +4,8 @@ import MenuNavBar from './MenuNavBar';
 import { Link, useParams } from 'react-router-dom';
 import StoreSelect from './StoreSelect';
 import { Helmet } from 'react-helmet';
+import { useBasket } from '../../context/BasketContext'; // Əlavə et səhifənin yuxarısında
+
 
 function MenuPage() {
     const [data, setData] = useState([]);
@@ -118,9 +120,10 @@ function MenuPage() {
                                                                 size: product.sizes?.[0]?.sizeCode || "Grande",
                                                                 sizes: product.sizes,
                                                                 uri: product.uri,
-
+                                                                price: product.sizes?.[0]?.price || 0,
                                                             },
                                                         }}
+
                                                         className="block"
                                                     >
 
@@ -135,7 +138,9 @@ function MenuPage() {
                                                             <p className='mt-2 font-medium text-[20px] w-[200px]'>{product.name}</p>
                                                         </div>
                                                     </Link>
+
                                                 </div>
+
                                             ))}
                                         </div>
                                     </div>
