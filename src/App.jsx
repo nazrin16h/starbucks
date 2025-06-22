@@ -14,7 +14,9 @@ import GiftSeeAll from './components/giftCards/GiftSeeAll'
 import GiftEcard from './components/giftCards/GiftEcard'
 import ProductPage from './components/menu/Details/ProductPage'
 import Basket from './components/menu/Basket'
-import ScrollToTop from './components/ScrollToTop'
+import SignIn from './login/Singin'
+import SignUp from './login/SignUp'
+import ScrollToTop from './utils/ScrollToTop'
 
 function App() {
   return (
@@ -22,7 +24,7 @@ function App() {
       <Header />
 
       <main className="flex-grow">
-        <ScrollToTop />
+        <ScrollToTop/>
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/menu" element={<MenuPage />} />
@@ -38,6 +40,8 @@ function App() {
           <Route path="/menu/:name/:subname" element={<MenuPage />} />
           <Route path="/menu/product/:subcategory/:productNumber" element={<ProductPage />} />
           <Route path="/basket" element={<Basket />} />
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/signup" element={<SignUp />} />
 
 
         </Routes>

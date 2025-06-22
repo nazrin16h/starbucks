@@ -16,15 +16,18 @@ import marriott from "../../assets/rewards-img/marriott-logo.png";
 import bank from "../../assets/rewards-img/bank-of-america.png";
 import { IoMdStar } from "react-icons/io";
 import { useState } from "react";
+import { Helmet } from "react-helmet";
 
 
 function RewardsPage() {
   const [selectedStar, setSelectedStar] = useState(25);
   return (
     <div className="min-h-screen">
-      <div className=" sticky top-0 z-50 w-full   h-12 px-2 lg:px-32 bg-[#1e3932] flex items-center ">
-        <p className="text-white uppercase font-bold text-[16px]">Starbucks® Rewards</p>
-      </div>
+      <Helmet>
+        <div className=" sticky top-0 z-50 w-full   h-12 px-2 lg:px-32 bg-[#1e3932] flex items-center ">
+          <p className="text-white uppercase font-bold text-[16px]">Starbucks® Rewards</p>
+        </div>
+      </Helmet>
       <div className="  text-center lg:text-left">
         <div className="bg-[#FBF5E8] flex flex-col md:flex-row-reverse mb-6">
           <div className="md:w-1/2">
