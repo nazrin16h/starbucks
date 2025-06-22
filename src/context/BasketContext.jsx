@@ -1,57 +1,89 @@
-import React, { createContext, useState, useContext } from "react";
+import React, { createContext, useState, useContext, useEffect } from "react";
 
 const BasketContext = createContext();
 
 export const BasketProvider = ({ children }) => {
-    const [basketItems, setBasketItems] = useState([]);
+    const [basketItems, setBasketItems] = useState(() => {
+        const storedItems = localStorage.getItem('basket');
+        return storedItems ? JSON.parse(storedItems) : [];
+    });
 
-    // uniqueId yaratmaq: məhsulun id-si və ölçüsünü birləşdiririk
-    const getUniqueId = (product) => `${product.id}_${product.size || "Grande"}`;
+    useEffect(() => {
+        localStorage.setItem('basket', JSON.stringify(basketItems));
+    }, [basketItems]);
 
     const addToBasket = (product) => {
-        const uniqueId = getUniqueId(product);
+        console.log(product);
+        const productNumber = `${product.name}_${product.size || "Grande"}`;
+        
+        setBasketItems(prev => {
+            const existing = prev.find(item => item.productNumber === productNumber);
 
-        setBasketItems((prev) => {
-            const existing = prev.find((item) => item.uniqueId === uniqueId);
             if (existing) {
-                // mövcud məhsul varsa sayını artır
-                return prev.map((item) =>
-                    item.uniqueId === uniqueId
+                return prev.map(item =>
+                    item.productNumber === productNumber
                         ? { ...item, quantity: item.quantity + 1 }
                         : item
                 );
             } else {
-                // yeni məhsul əlavə et
-                return [...prev, { ...product, quantity: 1, uniqueId }];
+                return [...prev, { ...product, productNumber, quantity: 1 }];
             }
         });
     };
 
-    const increaseQuantity = (uniqueId) => {
-        setBasketItems((prev) =>
-            prev.map((item) =>
-                item.uniqueId === uniqueId
+
+    // Funksiyalar name üzrə
+
+    const increaseQuantityByName = (name) => {
+        setBasketItems(prev =>
+            prev.map(item =>
+                item.name === name ? { ...item, quantity: item.quantity + 1 } : item
+            )
+        );
+    };
+
+    const decreaseQuantityByName = (name) => {
+        setBasketItems(prev =>
+            prev
+                .map(item =>
+                    item.name === name ? { ...item, quantity: item.quantity - 1 } : item
+                )
+                .filter(item => item.quantity > 0)
+        );
+    };
+
+    const removeByName = (name) => {
+        setBasketItems(prev => prev.filter(item => item.name !== name));
+    };
+
+    // Əlavə olaraq productNumber ilə işləyən funksiyalar (əgər ehtiyac varsa)
+
+    const increaseQuantity = (productNumber) => {
+        setBasketItems(prev =>
+            prev.map(item =>
+                item.productNumber === productNumber
                     ? { ...item, quantity: item.quantity + 1 }
                     : item
             )
         );
     };
 
-    const decreaseQuantity = (uniqueId) => {
-        setBasketItems((prev) =>
+    const decreaseQuantity = (productNumber) => {
+        setBasketItems(prev =>
             prev
-                .map((item) =>
-                    item.uniqueId === uniqueId
+                .map(item =>
+                    item.productNumber === productNumber
                         ? { ...item, quantity: item.quantity - 1 }
                         : item
                 )
-                .filter((item) => item.quantity > 0)
+                .filter(item => item.quantity > 0)
         );
     };
 
-    const removeFromBasket = (uniqueId) => {
-        setBasketItems((prev) => prev.filter((item) => item.uniqueId !== uniqueId));
+    const removeFromBasket = (productNumber) => {
+        setBasketItems(prev => prev.filter(item => item.productNumber !== productNumber));
     };
+
 
     return (
         <BasketContext.Provider
@@ -61,6 +93,9 @@ export const BasketProvider = ({ children }) => {
                 increaseQuantity,
                 decreaseQuantity,
                 removeFromBasket,
+                increaseQuantityByName,
+                decreaseQuantityByName,
+                removeByName,
             }}
         >
             {children}

@@ -11,6 +11,7 @@ function MenuPage() {
     const [data, setData] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState(null);
     const { name, subname } = useParams();
+    
 
     useEffect(() => {
         getMenu().then(res => setData(res));
