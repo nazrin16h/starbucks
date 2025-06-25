@@ -51,7 +51,7 @@ function SignUp() {
                     you pay. Get access to mobile ordering, a birthday Reward, and
                     moremore.
                 </p>
-                <div className="px-4 mb-10 rounded-xl md:py-8 md:mx-auto md:max-w-[600px] md:px-16 md:shadow-[0_2px_4px_#00000012,0_4px_5px_#0000000f,0_1px_10px_#0000001a]">
+                <div className="px-4 mb-11 rounded-xl md:py-8 md:mx-auto md:max-w-[600px] md:px-16 md:shadow-[0_2px_4px_#00000012,0_4px_5px_#0000000f,0_1px_10px_#0000001a]">
                     <form onSubmit={(e) => e.preventDefault()}>
                         <p className="pb-6 md:text-[17px]">
                             <span className="text-[#00754a]">* </span>

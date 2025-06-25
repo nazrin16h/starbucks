@@ -11,7 +11,7 @@ function Header() {
     const [isOpen, setIsOpen] = useState(false);
     const navigate = useNavigate();
     const menuRef = useRef(null);
-    const location = useLocation();
+    const location = useLocation()
 
 
     useEffect(() => {
