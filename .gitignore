@@ -31,3 +31,20 @@ build/
 .env
 *.log
 coverage/
+
+
+
+# env
+.env
+.env.*.local
+
+# logs
+*.log
+
+# mac/windows system files
+.DS_Store
+Thumbs.db
+
+# IDE (VS Code)
+.vscode/
+
