@@ -81,13 +81,13 @@ function MenuPage() {
                 <div className='hidden lg:block'>
                     {data.map((item, i) => (
                         <div key={i}>
-                            <h2 className='font-medium mt-8 my-3 text-[20px]'>{item.name}</h2>
+                            <h2 className='font-medium mt-8 my-3 text-[20px] '>{item.name}</h2>
                             {item.children.map((d, ind) => (
                                 <Link
                                     to={`/menu/${item.name.toLowerCase()}/${d.name.toLowerCase()}`}
                                     key={ind}
                                 >
-                                    <h3 className='cursor-pointer text-gray-500 py-2 font-medium lg:w-[150px] hover:text-green-600'>
+                                    <h3 className='cursor-pointer  text-gray-500 py-2 font-medium lg:w-[150px] hover:text-green-600'>
                                         {d.name}
                                     </h3>
                                 </Link>
@@ -102,13 +102,13 @@ function MenuPage() {
 
                     {selectedCategory ? (
                         <div>
-                            <h2 className='mt-8 font-bold lg:text-[24px] text-[20px]'>{selectedCategory.name}</h2>
+                            <h2 className='mt-8 font-bold lg:text-[24px] text-[20px] '>{selectedCategory.name}</h2>
                             <hr className='lg:w-[750px] text-gray-300 mt-4' />
 
                             {selectedCategory.children?.length > 0 ? (
                                 selectedCategory.children.map(child => (
                                     <div key={child.name} className='mt-10'>
-                                        <h3 className='text-[25px] font-bold mb-4'>{child.name}</h3>
+                                        <h3 className='text-[25px] font-bold mb-4 '>{child.name}</h3>
                                         <div className='flex flex-wrap gap-5 mt-10'>
                                             {(child.products || []).map((product, i) => (
                                                 <div key={i} className='mx-1 mb-5'>
@@ -125,18 +125,18 @@ function MenuPage() {
                                                             },
                                                         }}
 
-                                                        className="block"
+                                                        className="block "
                                                     >
 
                                                         <div className='w-30 h-30 overflow-hidden rounded-full'>
                                                             <img
                                                                 src={product.imageURL}
                                                                 alt={product.name}
-                                                                className='w-full h-full object-cover scale-200'
+                                                                className='w-full h-full object-cover scale-200 '
                                                             />
                                                         </div>
                                                         <div className='w-[180px]'>
-                                                            <p className='mt-2 font-medium text-[20px] w-[200px]'>{product.name}</p>
+                                                            <p className='mt-2 font-medium text-[20px] w-[200px] '>{product.name}</p>
                                                         </div>
                                                     </Link>
 
@@ -158,7 +158,7 @@ function MenuPage() {
                                                 />
                                             </div>
                                             <div className='w-[180px]'>
-                                                <p className='mt-2 text-center font-medium text-[20px]'>{product.name}</p>
+                                                <p className='mt-2 text-center font-medium text-[20px] '>{product.name}</p>
                                             </div>
                                         </div>
                                     ))}
@@ -187,7 +187,7 @@ function MenuPage() {
                                                     alt={child.name}
                                                 />
                                             </div>
-                                            <span className='font-medium text-lg w-[200px]'>{child.name}</span>
+                                            <span className='font-medium text-lg lg:w-[200px] w-[160px]'>{child.name}</span>
                                         </Link>
                                     ))}
                                 </div>

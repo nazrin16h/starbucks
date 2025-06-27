@@ -38,7 +38,9 @@ function Header() {
                 <div className="container flex justify-between h-16 mx-auto">
                     <div className="flex">
 
-                        <div className='w-[64px] h-[64px]'>
+                        <div className='w-[64px] h-[64px]' onClick={() => {
+                            setActiveIndex(null);
+                        }}>
                             <Logo />
                         </div>
 
@@ -87,7 +89,7 @@ function Header() {
                     </div>
                     <div className="items-center gap-5 flex-shrink-0 hidden lg:flex">
                         <div className='flex flex-row hover:text-[#00754A]'>
-                            <Link to={'/mapSection'}className='flex items-center px-1 pr-4  -mb-1 font-bold  text-bold dark:border- '><MdLocationPin size={25} />Find a store</Link>
+                            <Link to={'/mapSection'} className='flex items-center px-1 pr-4  -mb-1 font-bold  text-bold dark:border- '><MdLocationPin size={25} />Find a store</Link>
                         </div>
                         <Link
                             to={'/signin'}

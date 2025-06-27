@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import short from '../../../assets/cups/short.svg';
 import shortActive from '../../../assets/cups/shortactive.svg';
@@ -76,6 +76,20 @@ export default function ProductPage() {
         }
     }, [selectedSize]);
 
+
+    // costumize
+    const navigate = useNavigate();
+    const handleCustomize = () => {
+        const selectedProduct = {
+            productNumber: product.productNumber,
+            name: product.name,
+            imageURL: product.imageURL,
+            sizes: product.sizes,
+        };
+        localStorage.setItem("selectedProduct", JSON.stringify(selectedProduct));
+        navigate("/customize");
+    }
+
     return (
         <div>
             <div className="mx-6 md:mx-28 bg-white text-black text-sm p-4">
@@ -146,7 +160,8 @@ export default function ProductPage() {
                     </div>
 
                     <div className="mt-6">
-                        <button className="px-8 py-3 border-2 bg-[#1E3932] border-[#1E3932] text-white font-semibold rounded-full text-[20px] duration-200 hover:scale-105">
+                        <button className="px-8 py-3 border-2 bg-[#1E3932] border-[#1E3932] text-white font-semibold rounded-full text-[20px] duration-200 hover:scale-105"
+                            onClick={handleCustomize}>
                             ✨ Customize
                         </button>
                     </div>

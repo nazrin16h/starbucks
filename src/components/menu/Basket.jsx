@@ -22,7 +22,7 @@ function Basket() {
 
     });
     console.log("basketItems:", basketItems);
-    
+
 
 
     return (
@@ -42,7 +42,9 @@ function Basket() {
 
                 <label className="block text-gray-300 text-lg">
                     Pickup store
-                    <select className="mt-1 w-full bg-[#1E3932] border-b border-gray-400 focus:outline-none">
+                    <select
+                        className="mt-1 w-full max-w-xs bg-[#1E3932] border-b border-gray-400 focus:outline-none"
+                    >
                         <option>Choose store</option>
                         <option>Store 1</option>
                     </select>
@@ -57,42 +59,30 @@ function Basket() {
                     groupedItems.map(({ name, totalQuantity, sampleItem }) => (
                         <div
                             key={name}
-                            className="flex flex-col sm:flex-row items-center border rounded-md shadow p-4 max-w-full sm:max-w-[600px] mb-6 mx-auto"
+                            className="flex flex-col sm:flex-row items-center sm:items-start border rounded-md shadow p-4 w-full sm:max-w-[600px] mb-6 mx-auto overflow-hidden"
                         >
-
                             <img
                                 src={sampleItem.image || sampleItem.imageURL}
                                 alt={name}
                                 className="w-24 h-24 object-cover rounded-full mb-4 sm:mb-0 sm:mr-6"
                             />
-                            <div className="flex-1 text-center sm:text-left">
-                                <h2 className="text-xl sm:text-2xl font-semibold">{name}</h2>
+                            <div className="flex-1 text-center sm:text-left min-w-0">
+                                <h2 className="text-xl sm:text-2xl font-semibold truncate">{name}</h2>
                             </div>
-
-                            <div className="flex items-center gap-3 mt-4 sm:mt-0">
-                                <button
-                                    onClick={() => decreaseQuantityByName(name)}
-                                    className="p-2 rounded-full hover:bg-gray-200"
-                                >
+                            <div className="flex items-center gap-3 mt-4 sm:mt-0 flex-wrap justify-center sm:justify-start">
+                                <button onClick={() => decreaseQuantityByName(name)} className="p-2 rounded-full hover:bg-gray-200">
                                     <FaMinus />
                                 </button>
-                                <span className="bg-green-700 text-white px-3 py-1 rounded">
-                                    {totalQuantity}
-                                </span>
-                                <button
-                                    onClick={() => increaseQuantityByName(name)}
-                                    className="p-2 rounded-full hover:bg-gray-200"
-                                >
+                                <span className="bg-green-700 text-white px-3 py-1 rounded">{totalQuantity}</span>
+                                <button onClick={() => increaseQuantityByName(name)} className="p-2 rounded-full hover:bg-gray-200">
                                     <FaPlus />
                                 </button>
-                                <button
-                                    onClick={() => removeByName(name)}
-                                    className="p-2 rounded-full hover:bg-gray-200"
-                                >
+                                <button onClick={() => removeByName(name)} className="p-2 rounded-full hover:bg-gray-200">
                                     <FaTrash />
                                 </button>
                             </div>
                         </div>
+
                     ))
                 )}
             </div>

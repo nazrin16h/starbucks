@@ -17,6 +17,7 @@ import Basket from './components/menu/Basket'
 import SignIn from './login/Singin'
 import SignUp from './login/SignUp'
 import ScrollToTop from './utils/ScrollToTop'
+import Customize from './components/menu/Details/Customize'
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
           <Route path="/basket" element={<Basket />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/customize" element={<Customize />} />
 
 
         </Routes>

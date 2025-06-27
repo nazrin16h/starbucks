@@ -23,3 +23,11 @@ dist-ssr
 *.sln
 *.sw?
 .env
+
+# node.js
+node_modules/
+dist/
+build/
+.env
+*.log
+coverage/
