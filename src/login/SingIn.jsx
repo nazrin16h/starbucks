@@ -48,14 +48,14 @@ function SignIn() {
                                 onChange={(e) => setEmail(e.target.value)}
                             />
                             <label
-                                className={`absolute left-[16px] cursor-text peer-focus:translate-y-[40%] peer-focus:top-[-50%] peer-focus:bg-[#f0f7f5] 
-            peer-focus:text-[#00754a] peer-focus:text-[13px] ${email
+                                className={`absolute text-[15px] left-[16px] cursor-text peer-focus:translate-y-[40%] peer-focus:top-[-50%] peer-focus:bg-[#f0f7f5] 
+                                peer-focus:text-[#00754a] peer-focus:text-[13px] ${email
                                         ? "top-[-50%] translate-y-[60%] text-[#6c6c6c] bg-white text-[15px]"
-                                        : "top-[50%] translate-y-[-50%] text-[1.2rem]"
+                                        : "top-[50%] translate-y-[-50%] lg:text-[1.2rem]"
                                     } px-[.4rem] font-semibold tracking-wide text-[#000000de] z-[2] transition-all`}
                                 htmlFor="username"
                             >
-                                <span className="text-[#00754a]">*</span> Username or email
+                                <span className="text-[#00754a] ">*</span> Username or email
                                 address
                             </label>
                         </div>
@@ -151,7 +151,7 @@ function SignIn() {
                             </a>
                         </p>
 
-                        <div className="text-right mt-[50px]">
+                        <div className="text-right mt-[50px] ">
                             <button className="px-[20px] py-[14px] bg-[#00754a] text-white font-bold text-[18px] rounded-full">
                                 Sign in
                             </button>
@@ -159,7 +159,7 @@ function SignIn() {
                     </form>
                 </div>
 
-                <div className="text-center mt-10 md:my-20 px-4 md:max-w-[380px] mx-auto">
+                <div className="text-center mb-10 mt-10 md:my-20 px-4 md:max-w-[380px] mx-auto">
                     <h2 className="uppercase tracking-wider text-[#00754a] font-bold text-[.9rem]">
                         Join Starbucks® Rewards
                     </h2>
@@ -169,7 +169,7 @@ function SignIn() {
                     </p>
                     <Link
                         to={"/signup"}
-                        className="border border-[#00754a] text-[#00754a] font-bold rounded-full px-[16px] py-[7px]"
+                        className="border  border-[#00754a] text-[#00754a] font-bold rounded-full px-[16px] py-[7px]"
                     >
                         Join now
                     </Link>

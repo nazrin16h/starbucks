@@ -1,6 +1,8 @@
 import { useBasket } from "../../context/BasketContext";
 import { FaTrash, FaPlus, FaMinus } from "react-icons/fa6";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { IoIosArrowBack } from "react-icons/io";
+import Logo from "../../Logo";
 
 function Basket() {
     const {
@@ -28,27 +30,38 @@ function Basket() {
     return (
         <div className="min-h-screen flex flex-col lg:flex-row">
             {/* Sol panel */}
-            <div className="bg-[#1E3932] text-white w-full lg:w-1/3 p-6">
-                <button
-                    onClick={() => navigate(-1)}
-                    className="flex items-center mb-8 font-semibold"
-                >
-                    <span className="mr-2 text-xl">←</span> Back to menu
-                </button>
-
-                <h1 className="text-2xl font-bold mb-4">
-                    Review order ({basketItems.length})
-                </h1>
-
-                <label className="block text-gray-300 text-lg">
-                    Pickup store
-                    <select
-                        className="mt-1 w-full max-w-xs bg-[#1E3932] border-b border-gray-400 focus:outline-none"
+            <div className="bg-[#1E3932] text-white w-full lg:w-1/3 py-6">
+                <div className="flex flex-row ">
+                    <div className="w-[60px] mb-8 mr-4">
+                        <Logo className="bg-amber-300" />
+                    </div>
+                    <button
+                        onClick={() => navigate(-1)}
+                        className="flex items-center mb-8 font-semibold"
                     >
-                        <option>Choose store</option>
-                        <option>Store 1</option>
-                    </select>
-                </label>
+                        <span className="mr-2 text-xl"><IoIosArrowBack /></span> Back to menu
+                    </button>
+
+                </div>
+                <div className="flex flex-col mx-auto justify-center mt-[200px]">
+                    <h1 className="text-2xl font-bold mb-4">
+                        Review order ({basketItems.length})
+                    </h1>
+
+                    <label className="block text-gray-300 text-lg">
+
+                        <select
+                            className="mt-1 w-full max-w-xs bg-[#1E3932] border-b border-gray-400 focus:outline-none"
+                        >
+                            <option>
+                                <Link to={'/mapsection'}>
+                                    Pickup store
+                                </Link>
+                            </option>
+                            <option>Store 1</option>
+                        </select>
+                    </label>
+                </div>
             </div>
 
             {/* Sağ panel */}

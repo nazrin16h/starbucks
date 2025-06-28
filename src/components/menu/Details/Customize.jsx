@@ -1,14 +1,17 @@
-// pages/CustomizePage.jsx
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAllDetails } from "../../../services/api";
 import OptionSection from "./OptionSection";
 
-export default function CustomizePage() {
+export default function Customize({ onDone }) {
   const [data, setData] = useState(null);
-  const [selectedOptions, setSelectedOptions] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [selectedCounts, setSelectedCounts] = useState(() => {
+    const saved = localStorage.getItem("customDrink");
+    return saved ? JSON.parse(saved) : {};
+  });
+  const [open, setOpen] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -24,16 +27,33 @@ export default function CustomizePage() {
       });
   }, []);
 
-  const handleSelect = (name, value) => {
-    setSelectedOptions((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+  useEffect(() => {
+    localStorage.setItem("customDrink", JSON.stringify(selectedCounts));
+  }, [selectedCounts]);
+
+  const handleSelect = (name, action) => {
+    setSelectedCounts((prev) => {
+      const count = prev[name] || 0;
+      const newCounts = { ...prev };
+      if (action === "increase") {
+        newCounts[name] = count + 1;
+      } else if (action === "decrease") {
+        if (count <= 1) {
+          delete newCounts[name];
+        } else {
+          newCounts[name] = count - 1;
+        }
+      }
+      return newCounts;
+    });
   };
 
   const handleDone = () => {
-    localStorage.setItem("customDrink", JSON.stringify(selectedOptions));
-    navigate(-1);
+    if (onDone) {
+      onDone();
+    } else {
+      navigate(-1);
+    }
   };
 
   if (loading) return <p className="p-6">Yüklənir...</p>;
@@ -43,39 +63,35 @@ export default function CustomizePage() {
   const leftSections = productOptions.slice(0, Math.ceil(productOptions.length / 2));
   const rightSections = productOptions.slice(Math.ceil(productOptions.length / 2));
 
-
   return (
     <div className="min-h-screen bg-white text-black px-6 md:px-20 py-10">
-      
-
-      {/* Row görünüş */}
-      <div className="flex flex-wrap gap-2 justify-evenly">
-        {/* Sol sütun (Flavors və s.) */}
-        <div className="w-full md:w-[35%]">
+      <div className="flex flex-wrap flex-row gap-2 justify-around">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-[80%]">
           {leftSections.map((section, idx) => (
             <OptionSection
               key={idx}
               section={section}
-              selectedOptions={selectedOptions}
+              selectedCounts={selectedCounts}
               onSelect={handleSelect}
+              open={open}
+              setOpen={setOpen}
             />
           ))}
         </div>
-
-        {/* Sağ sütun (Cold Foams və s.) */}
-        <div className="w-full md:w-[35%]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-[80%]">
           {rightSections.map((section, idx) => (
             <OptionSection
               key={idx}
               section={section}
-              selectedOptions={selectedOptions}
+              selectedCounts={selectedCounts}
               onSelect={handleSelect}
+              open={open}
+              setOpen={setOpen}
             />
           ))}
         </div>
       </div>
 
-      {/* Done düyməsi */}
       <div className="mt-10 flex justify-center">
         <button
           onClick={handleDone}
@@ -86,5 +102,4 @@ export default function CustomizePage() {
       </div>
     </div>
   );
-
 }
