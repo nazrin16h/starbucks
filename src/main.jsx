@@ -3,12 +3,18 @@ import './index.css'
 import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
 import { BasketProvider } from "./context/BasketContext";
+import SelectContext from './context/SelectContext.jsx';
+import DataContext from './context/DataContext.jsx';
 
 createRoot(document.getElementById('root')).render(
-  <BasketProvider>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </BasketProvider>
+  <BrowserRouter>
+    <DataContext>
+      <BasketProvider>
+        <SelectContext>
+          <App />
+        </SelectContext>
+      </BasketProvider>
+    </DataContext>
+  </BrowserRouter >
 
 )

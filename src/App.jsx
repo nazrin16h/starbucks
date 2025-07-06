@@ -18,38 +18,46 @@ import SignIn from './login/Singin'
 import SignUp from './login/SignUp'
 import ScrollToTop from './utils/ScrollToTop'
 import Customize from './components/menu/Details/Customize'
+import BasketLayout from './layout/BasketLayout'
+import Layout from './layout/Layout'
+import AuthLayout from '../../Starbucks-main/src/layouts/AuthLayout'
 
 function App() {
   return (
     <div className=' flex flex-col min-h-screen'>
-      <Header />
 
       <main className="flex-grow">
-        <ScrollToTop/>
+        <ScrollToTop />
         <Routes>
-          <Route path="/" element={<Main />} />
-          <Route path="/menu" element={<MenuPage />} />
-          <Route path="/rewards" element={<RewardsPage />} />
-          <Route path="/giftCards" element={<GiftCardsPage />} />
-          <Route path="/previousPage" element={<PrevPage />} />
-          <Route path="/favouritePage" element={<FavPage />} />
-          <Route path="/feature" element={<MenuFeaturePage />} />
-          <Route path="/mapSection" element={<Mapsection />} />
-          <Route path="/delivery" element={<DeliverySection />} />
-          <Route path="/see-all" element={<GiftSeeAll />} />
-          <Route path="/Ecard" element={<GiftEcard />} />
-          <Route path="/menu/:name/:subname" element={<MenuPage />} />
-          <Route path="/menu/product/:subcategory/:productNumber" element={<ProductPage />} />
-          <Route path="/basket" element={<Basket />} />
-          <Route path="/signin" element={<SignIn />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/customize" element={<Customize />} />
+          <Route path="/" element={<Layout />}>
+            <Route path="/" element={<Main />} />
+            <Route path="/menu" element={<MenuPage />} />
+            <Route path="/rewards" element={<RewardsPage />} />
+            <Route path="/giftCards" element={<GiftCardsPage />} />
+            <Route path="/previousPage" element={<PrevPage />} />
+            <Route path="/favouritePage" element={<FavPage />} />
+            <Route path="/feature" element={<MenuFeaturePage />} />
+            <Route path="/mapSection" element={<Mapsection />} />
+            <Route path="/delivery" element={<DeliverySection />} />
+            <Route path="/see-all" element={<GiftSeeAll />} />
+            <Route path="/Ecard" element={<GiftEcard />} />
+            <Route path="/menu/:name/:subname" element={<MenuPage />} />
+            <Route path="/menu/product/:subcategory/:productNumber" element={<ProductPage />} />
+            <Route path="/customize" element={<Customize />} />
+          </Route>
+
+          <Route element={<AuthLayout />}>
+            <Route path="/signin" element={<SignIn />} />
+            <Route path="/signup" element={<SignUp />} />
+          </Route>
+
+          <Route element={<BasketLayout />}>
+            <Route path="/basket" element={<Basket />} />
+          </Route>
 
 
         </Routes>
       </main>
-
-      <Footer />
     </div>
   )
 }

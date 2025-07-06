@@ -1,6 +1,6 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
 
-const BasketContext = createContext();
+export const BasketContext = createContext();
 
 export const BasketProvider = ({ children }) => {
     const [basketItems, setBasketItems] = useState(() => {
@@ -13,9 +13,9 @@ export const BasketProvider = ({ children }) => {
     }, [basketItems]);
 
     const addToBasket = (product) => {
-        console.log(product);
+        // console.log(product);
         const productNumber = `${product.name}_${product.size || "Grande"}`;
-        
+
         setBasketItems(prev => {
             const existing = prev.find(item => item.productNumber === productNumber);
 
@@ -83,7 +83,14 @@ export const BasketProvider = ({ children }) => {
     const removeFromBasket = (productNumber) => {
         setBasketItems(prev => prev.filter(item => item.productNumber !== productNumber));
     };
-
+    const editFromBasket = (productNumber, updateProduct) => {
+        setBasketItems(prev => (
+            prev.map(item => (
+                item.productNumber === productNumber
+                    ? { ...item, ...updateProduct }
+                    : item))
+        ))
+    }
 
     return (
         <BasketContext.Provider
@@ -96,6 +103,7 @@ export const BasketProvider = ({ children }) => {
                 increaseQuantityByName,
                 decreaseQuantityByName,
                 removeByName,
+                editFromBasket
             }}
         >
             {children}

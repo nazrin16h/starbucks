@@ -48,6 +48,7 @@ function Mapsection() {
                         <li><a href="">Do Not Share My Personal Information</a></li>
                     </ul>
                 </div>
+               
 
                 {/* Map */}
                 <div className="flex-1">

@@ -10,32 +10,32 @@ function StoreSelect() {
                 <div>
                     <p className="text-sm">For item availability</p>
                     <div onClick={() => navigate("/mapSection")} className="flex items-center gap-20 mt-1">
-                        <span className="font-bold mr-2">Choose a store</span>
+                        <span className="font-bold mr-2">Choose a store  </span>
                         <svg
-                            className="w-4 h-4"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={10} d="M19 9l-7 7-7-7" />
+                            aria-hidden="true"
+                            className="w-[18px] h-[18px] lg:ml-10 fill-white"
+                            focusable="false"
+                            preserveAspectRatio="xMidYMid meet"
+                            viewBox="0 0 24 24"
+                            loading="lazy"
+                        >
+                            <path d="M11.96 15.5c-.206 0-.402-.084-.546-.232l-5.188-5.33c-.3-.31-.3-.81 0-1.12.3-.31.79-.31 1.093 0l4.64 4.767 4.723-4.853c.3-.31.79-.31 1.09 0 .303.31.303.812.002 1.122l-5.27 5.414c-.145.148-.34.232-.546.232"></path>
                         </svg>
                     </div>
                     <div className="border-t border-white mt-2" />
                 </div>
                 <div>
                     <BasketButton onClick={() => navigate("/basket")} />
-                    
+
                     {/* <svg
-                        onClick={() => navigate("/basket")}
-                        className="w-6 h-6 text-white"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24">
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M5 8h14l1 10H4l1-10zm7-5a3 3 0 013 3v1H9V6a3 3 0 013-3z"
-                        />
+                        aria-hidden="true"
+                        className="w-[18px] h-[18px] lg:ml-10 fill-white"
+                        focusable="false"
+                        preserveAspectRatio="xMidYMid meet"
+                        viewBox="0 0 24 24"
+                        loading="lazy"
+                    >
+                        <path d="M11.96 15.5c-.206 0-.402-.084-.546-.232l-5.188-5.33c-.3-.31-.3-.81 0-1.12.3-.31.79-.31 1.093 0l4.64 4.767 4.723-4.853c.3-.31.79-.31 1.09 0 .303.31.303.812.002 1.122l-5.27 5.414c-.145.148-.34.232-.546.232"></path>
                     </svg> */}
                 </div>
             </div>
