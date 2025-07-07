@@ -20,7 +20,7 @@ import ScrollToTop from './utils/ScrollToTop'
 import Customize from './components/menu/Details/Customize'
 import BasketLayout from './layout/BasketLayout'
 import Layout from './layout/Layout'
-import AuthLayout from '../../Starbucks-main/src/layouts/AuthLayout'
+import AuthLayout from './layout/AuthLayout'
 
 function App() {
   return (

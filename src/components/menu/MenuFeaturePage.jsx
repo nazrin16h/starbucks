@@ -17,7 +17,7 @@ const FeaturePage = () => {
                     </div>
                     <div className="md:w-1/2 flex items-center text-center justify-center bg-[#32462f] p-6 text-white">
                         <div>
-                            <h2 className="text-2xl font-bold mb-2 text-center text-[50px] lg:w-[500px] mx-auto">Summer–Berry is back</h2>
+                            <h2 className="text-2xl font-bold mb-2 text-center lg:text-[50px] text-[35px] lg:w-[500px] mx-auto">Summer–Berry is back</h2>
                             <p className="text-sm mb-4 text-center my-4 text-[19px] font-medium  lg:text-[30px] lg:w-[550px]">
                                 A favorite returns with berry flavors shaken with ice and coconutmilk or lemonade,
                                 then poured over bursting raspberry flavored pearls.
@@ -35,7 +35,7 @@ const FeaturePage = () => {
                     </div>
                     <div className="md:w-1/2 flex items-center text-center justify-center bg-[#d1d1aa] p-6 text-black">
                         <div>
-                            <h2 className="text-xl font-bold mb-2 text-center text-[50px] lg:w-[400px] mx-auto text-[#1e3932]">New Iced Horchata Oatmilk Shaken Espresso</h2>
+                            <h2 className="text-xl font-bold mb-2 text-center lg:text-[50px] text-[35px] lg:w-[400px] mx-auto text-[#1e3932]">New Iced Horchata Oatmilk Shaken Espresso</h2>
                             <p className="text-sm mb-4 text-center my-4 text-[19px] font-medium  lg:text-[30px] lg:w-[550px] text-[#1e3932]">
                                 Boldly refreshing with Starbucks® Blonde Espresso, cinnamon, vanilla and
                                 rice-flavored horchata syrup, and a splash of creamy oatmilk.
@@ -53,7 +53,7 @@ const FeaturePage = () => {
                     </div>
                     <div className="md:w-1/2 flex items-center text-center justify-center bg-[#32462f] p-6 text-white">
                         <div>
-                            <h2 className="text-2xl font-bold mb-2 text-center text-[50px] lg:w-[500px]  mx-auto">Salted Caramel Cream Cold Brew and Vanilla Sweet Cream Cold Brew</h2>
+                            <h2 className="text-2xl font-bold mb-2 text-center lg:text-[50px] text-[35px] lg:w-[500px]  mx-auto">Salted Caramel Cream Cold Brew and Vanilla Sweet Cream Cold Brew</h2>
                             <p className="text-sm mb-4 text-center my-4 text-[19px] font-medium  lg:text-[30px] lg:w-[550px]">
                                 Our signature cold brew with vanilla syrup and topped with either Salted Caramel Cream Cold Foam or Vanilla Sweet Cream.
                             </p>
@@ -70,7 +70,7 @@ const FeaturePage = () => {
                     </div>
                     <div className="md:w-1/2 flex items-center text-center justify-center bg-[#d1d1aa] p-6 text-black">
                         <div>
-                            <h2 className="text-xl font-bold mb-2 text-center text-[50px] lg:w-[450px]  mx-auto text-[#1e3932]">Egg, Pesto & Mozzarella Sandwich</h2>
+                            <h2 className="text-xl font-bold mb-2 text-center lg:text-[50px] text-[35px] lg:w-[450px]  mx-auto text-[#1e3932]">Egg, Pesto & Mozzarella Sandwich</h2>
                             <p className="text-sm mb-4 text-center my-4 text-[19px] font-medium lg:text-[30px] lg:w-[550px] text-[#1e3932]">
                                 Protein-packed with a fluffy, cage-free egg frittata, kale-basil pesto and mozzarella on a toasted Cheddar and onion bun.
                             </p>

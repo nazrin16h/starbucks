@@ -14,10 +14,11 @@ function GiftSeeAll() {
 
     const featured = data.find(item => item.name === "Featured");
     const others = data.filter(item => item.name !== "Featured");
+
     return (
-        <div>
-            <p className='uppercase font-bold mt-8 mb-4 text-[18px] md:text-[22px] mx-35'>Featured</p>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 my-6 container w-[1100px] mx-auto">
+        <div className="px-4 md:px-8 lg:px-16 max-w-[1200px] mx-auto">
+            <p className='uppercase font-bold mt-8 mb-4 text-[18px] md:text-[22px]'>Featured</p>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 my-6">
                 {featured && featured.eGifts.map((card, index) => (
                     <div
                         key={index}
@@ -33,7 +34,5 @@ function GiftSeeAll() {
             </div>
         </div>
     )
-
 }
-
 export default GiftSeeAll

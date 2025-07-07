@@ -3,7 +3,7 @@ import { DATA } from "../../../context/DataContext";
 // import { SELECTCONTEXT } from "../../context/SelectContext";
 import { useLocation, useParams } from "react-router-dom";
 import { SELECTCONTEXT } from "../../../context/SelectContext";
-import ScrollTo from "../../../../../Starbucks-main/src/utils/ScrollTo";
+import ScrollToTop from "../../../utils/ScrollToTop";
 
 function Customize({ handleCustomize, count, setCount, size }) {
   const { details } = useContext(DATA);
@@ -219,7 +219,7 @@ function Customize({ handleCustomize, count, setCount, size }) {
 
   return (
     <div className="flex flex-col  ">
-      <ScrollTo/>
+      <ScrollToTop/>
       <button
         onClick={() => handleCustomize(true)}
         className="flex items-center text-[20px] hover:bg-[#f0f0f0] px-4 py-2 rounded-full font-semibold my-8 lg:ml-16"

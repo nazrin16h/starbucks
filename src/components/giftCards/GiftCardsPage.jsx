@@ -34,8 +34,8 @@ function GiftCardsPage() {
 
   return (
     <div className='h-full'>
-      <div className='container lg:w-[1100px] lg:mx-auto mx-2'>
-        <p className='text-[28px] md:text-[35px] font-bold mt-10 mb-8 text-left'>
+      <div className='lg:mx-auto mx-2  md:w-[1100px]'>
+        <p className='text-[28px] md:text-[35px] font-bold mt-10 mb-8 w-[200px]'>
           Gift Cards
         </p>
       </div>

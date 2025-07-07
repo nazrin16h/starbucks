@@ -11,7 +11,7 @@ function MenuPage() {
     const [data, setData] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState(null);
     const { name, subname } = useParams();
-    
+
 
     useEffect(() => {
         getMenu().then(res => setData(res));
@@ -76,7 +76,6 @@ function MenuPage() {
 
             <MenuNavBar />
             <div className='lg:flex lg:flex-row gap-28 container lg:w-[1200px] lg:px-12 pl-3 h-full mx-auto'>
-
                 {/* Sol menyu */}
                 <div className='hidden lg:block'>
                     {data.map((item, i) => (
@@ -108,8 +107,8 @@ function MenuPage() {
                             {selectedCategory.children?.length > 0 ? (
                                 selectedCategory.children.map(child => (
                                     <div key={child.name} className='mt-10'>
-                                        <h3 className='text-[25px] font-bold mb-4 '>{child.name}</h3>
-                                        <div className='flex flex-wrap gap-5 mt-10'>
+                                        <h3 className='text-[25px] font-bold mb-4 '>{child.name} </h3>
+                                        <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:gap-0 gap-5 w-full mt-10 float-left'>
                                             {(child.products || []).map((product, i) => (
                                                 <div key={i} className='mx-1 mb-5'>
                                                     <Link
@@ -124,26 +123,23 @@ function MenuPage() {
                                                                 price: product.sizes?.[0]?.price || 0,
                                                             },
                                                         }}
-
-                                                        className="block "
+                                                        className="block"
                                                     >
-
-                                                        <div className='w-30 h-30 overflow-hidden rounded-full'>
+                                                        <div className='w-28 h-28 overflow-hidden rounded-full'>
                                                             <img
                                                                 src={product.imageURL}
                                                                 alt={product.name}
-                                                                className='w-full h-full object-cover scale-200 '
+                                                                className='w-full h-full object-cover scale-200'
                                                             />
                                                         </div>
-                                                        <div className='w-[180px]'>
-                                                            <p className='mt-2 font-medium text-[20px] w-[200px] '>{product.name}</p>
+                                                        <div className='  text-center flex justify-center w-28'>
+                                                            <p className='font-medium text-[16px]'>{product.name}</p>
                                                         </div>
                                                     </Link>
-
                                                 </div>
-
                                             ))}
                                         </div>
+
                                     </div>
                                 ))
                             ) : selectedCategory.products?.length > 0 ? (
