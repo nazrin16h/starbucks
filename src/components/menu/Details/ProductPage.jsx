@@ -132,8 +132,6 @@ export default function ProductPage({ customizeMode: customizeModeProp }) {
 
 
 
-
-
     const defaultSize =
         product?.sizes?.find((s) => s.sizeCode === "Grande")?.sizeCode ||
         product?.sizes?.[0]?.sizeCode;
@@ -380,11 +378,7 @@ export default function ProductPage({ customizeMode: customizeModeProp }) {
                                                             onError={(e) => {
                                                                 e.target.src = "/assets/imgError.png";
                                                             }}
-                                                            // src={
-                                                            //   size === item.sizeCode
-                                                            //     ? sizeImage?.imgActive
-                                                            //     : sizeImage?.img
-                                                            // }
+                                                            
                                                             src={
                                                                 sizeImage
                                                                     ? size === item.sizeCode
@@ -416,7 +410,7 @@ export default function ProductPage({ customizeMode: customizeModeProp }) {
                                         What's included
                                     </h2>
                                 </div>
-                                {/* LOCALLLSTORAGEDEN GELENLERRRRR */}
+                                {/* LOCALLLSTORAGEDEN gelenler */}
                                 <div className="mt-5">
                                     {Object.entries(allEvents[idState] || {}).map(
                                         ([key, field], index) => {
@@ -729,7 +723,6 @@ export default function ProductPage({ customizeMode: customizeModeProp }) {
                                             className="w-full opacity-0 appearance-none absolute inset-0 h-full z-[1] outline-none"
                                             name="name"
                                             id="name"
-                                            // value={isCustomized}
                                             onChange={handleChange}
                                         >
                                             <option value="Extra Water">Extra Water</option>

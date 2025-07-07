@@ -23,7 +23,7 @@ const CreateEGift = () => {
     }, []);
 
     useEffect(() => {
-        window.scrollTo(0, 0); // <-- Əlavə et
+        window.scrollTo(0, 0); 
         getGiftPage().then(res => {
             setData(res);
         });

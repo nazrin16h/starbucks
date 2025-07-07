@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from "react";
 import { DATA } from "../../../context/DataContext";
-// import { SELECTCONTEXT } from "../../context/SelectContext";
 import { useLocation, useParams } from "react-router-dom";
 import { SELECTCONTEXT } from "../../../context/SelectContext";
 import ScrollToTop from "../../../utils/ScrollToTop";
@@ -32,11 +31,7 @@ function Customize({ handleCustomize, count, setCount, size }) {
     idState,
     setIdState
   } = useContext(SELECTCONTEXT);
-  // const{allEvents, setAllEvents}=useContext(SELECTCONTEXT)
-  // console.log(allEvents);
 
-  // const { pathname } = useLocation();
-  // ScrollTo(pathname, 500);
 
   //bidene checkbox input var onun ucundur
   function showCheck(e) {
@@ -170,7 +165,7 @@ function Customize({ handleCustomize, count, setCount, size }) {
         [idState]: {
           ...(prev[idState] || {}), // Preserves existing data for the current idState
           [`${name}_${Date.now()}`]: {
-            value, // The selected value
+            value, 
             options: selectedProduct.form?.sizes || [], // Available options
             number: countInp[index] || 0, // Default count
           },

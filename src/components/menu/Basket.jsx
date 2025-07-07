@@ -24,7 +24,7 @@ function Basket() {
         return { name, totalQuantity, sampleItem };
 
     });
-    console.log("basketItems:", basketItems);
+    // console.log("basketItems:", basketItems);
 
 
 
@@ -82,7 +82,6 @@ function Basket() {
                             <p className="text-sm text-gray-500 mt-1">{sampleItem.size}</p>
                         </div>
 
-                        {/* Funksiya düymələri (SVG-lər dəyişmədən saxlanılıb) */}
                         <div className="flex items-center gap-2">
                             <button className="ml-5">
                                 <Link to={`/menu`}>
