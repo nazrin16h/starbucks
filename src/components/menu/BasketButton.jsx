@@ -12,7 +12,7 @@ export default function BasketButton({ onClick }) {
         <button
             onClick={onClick}
             aria-label="Open Basket"
-            className="mt-5"
+            className="mt-5 cursor-pointer"
         >
             <img src={basket} alt="img-basket" />
             {totalQuantity > 0 && (

@@ -5,13 +5,19 @@ import { BrowserRouter } from 'react-router-dom'
 import { BasketProvider } from "./context/BasketContext";
 import SelectContext from './context/SelectContext.jsx';
 import DataContext from './context/DataContext.jsx';
+import LocationContext from './context/LocationContext.jsx';
+import { LoadingProvider } from './context/LoadingContext.jsx';
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <DataContext>
       <BasketProvider>
         <SelectContext>
-          <App />
+          <LocationContext>
+            <LoadingProvider>
+              <App />
+            </LoadingProvider>
+          </LocationContext>
         </SelectContext>
       </BasketProvider>
     </DataContext>

@@ -37,7 +37,7 @@ const AccordionItem = ({ title, children }) => {
 
 function Footer() {
     return (
-        <div className="border-t-1 border-gray-300" >
+        <div className="border-t-1 border-gray-300 px-2 " >
             <footer className="bg-white lg:w-full  mx-auto ">
                 <div className="mx-auto w-full max-w-screen-xl">
                     <div className="md:hidden">

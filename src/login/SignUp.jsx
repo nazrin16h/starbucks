@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
-import { Link, useLocation } from "react-router-dom";
 
 function SignUp() {
     const [checked, setChecked] = useState(false);
@@ -29,7 +28,7 @@ function SignUp() {
         if (!password) missingFields.push("Password");
 
         if (missingFields.length > 0) {
-            alert(`Please fill in the following fields: ${missingFields.join(", ")}`);
+            alert(`Zəhmət olmasa aşağıdakı sahələri doldurun: ${missingFields.join(", ")}`);
         } else {
             window.location.href = "/";
         }

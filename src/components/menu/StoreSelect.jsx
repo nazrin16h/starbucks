@@ -5,7 +5,7 @@ function StoreSelect() {
     const navigate = useNavigate();
 
     return (
-        <div className="fixed bottom-0 w-full  bg-white flex flex-col">
+        <div className="fixed bottom-0 w-full  bg-white flex flex-col cursor-pointer">
             <div className="bg-[#1e3a34]  text-white px-6 py-4 flex justify-evenly items-center">
                 <div>
                     <p className="text-sm">For item availability</p>

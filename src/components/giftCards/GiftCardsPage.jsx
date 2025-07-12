@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Helmet } from "react-helmet";
+
 
 import effort from "../../assets/giftCards-img/group-gift-cards.png";
 import businessGift from "../../assets/giftCards-img/bulk-gift-cards.jpg";
@@ -34,11 +36,16 @@ function GiftCardsPage() {
 
   return (
     <div className='h-full'>
-      <div className='lg:mx-auto mx-2  md:w-[1100px]'>
-        <p className='text-[28px] md:text-[35px] font-bold mt-10 mb-8 w-[200px]'>
+      <Helmet>
+        <title>Starbucks | Gift Cards</title>
+        <meta name="description" content="Buy and send Starbucks gift cards for every occasion. Easy to customize and send instantly." />
+      </Helmet>
+      <div className='mx-2 md:mx-4 lg:mx-auto max-w-[1100px]'>
+        <p className='text-[24px] md:text-[32px] lg:text-[35px] font-bold mt-10 mb-8 w-fit  '>
           Gift Cards
         </p>
       </div>
+
 
       {/* 1. Swiper - Featured */}
       {featured && (
@@ -136,7 +143,7 @@ function GiftCardsPage() {
       </div>
 
       {/* 3. Other categories */}
-      <div className='lg:w-[1100px] container mx-auto'>
+      <div className='lg:w-[1100px] container px-4'>
         {others.map((item, i) => (
           <div key={i}>
             <h2 className='uppercase font-bold mt-8 mb-4 text-[18px] md:text-[22px]'>{item.name}</h2>

@@ -1,6 +1,4 @@
-import Header from './components/header/Header'
 import Main from './components/main/Main'
-import Footer from './components/footer/Footer'
 import { Route, Routes } from 'react-router-dom'
 import MenuPage from './components/menu/MenuPage'
 import RewardsPage from './components/rewards/RewardsPage'
@@ -25,7 +23,6 @@ import AuthLayout from './layout/AuthLayout'
 function App() {
   return (
     <div className=' flex flex-col min-h-screen'>
-
       <main className="flex-grow">
         <ScrollToTop />
         <Routes>

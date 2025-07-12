@@ -849,7 +849,7 @@ export default function ProductPage({ customizeMode: customizeModeProp }) {
                                         onClick={() => handleCustomize(false)}
                                         className="bg-[#1e3932] py-[16px] px-[32px] rounded-[500px] text-white mt-[2rem]"
                                     >
-                                        <span className="flex items-center font-bold text-[20px]">
+                                        <span className="flex items-center font-bold text-[20px] cursor-pointer">
                                             <svg
                                                 aria-hidden="true"
                                                 className="w-[24px] h-[24px] fill-[#cba258] mr-2"
@@ -868,7 +868,7 @@ export default function ProductPage({ customizeMode: customizeModeProp }) {
                                 <div className="text-center lg:text-start pt-[3rem]">
                                     <button
                                         onClick={handleReset}
-                                        className="px-[16px] py-[7px] font-semibold border border-[#00754a] hover:bg-[#e5f1ec] text-[#00754a] rounded-full"
+                                        className="px-[16px] py-[7px] font-semibold border border-[#00754a] hover:bg-[#e5f1ec] text-[#00754a] rounded-full cursor-pointer"
                                     >
                                         Reset to standard recipe
                                     </button>
@@ -888,7 +888,7 @@ export default function ProductPage({ customizeMode: customizeModeProp }) {
 
                 <button
                     onClick={handleAddToBasket}
-                    className="bg-[#00754A] hover:bg-green-800 fixed bottom-35 right-0 z-120 text-white rounded-full shadow-md text-lg font-bold w-50 h-12"
+                    className="bg-[#00754A] hover:bg-green-800 fixed lg:bottom-32 bottom-35 cursor-pointer right-0 z-120 text-white rounded-full shadow-md text-lg font-bold w-50 h-12"
                 >
                     Add to Order
                 </button>

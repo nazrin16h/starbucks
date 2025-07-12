@@ -19,7 +19,6 @@ const Main = () => {
                 textColor="text-white"
                 titleSize="text-6xl"
                 hoverBg="hover:bg-[#2a3a28]"
-
             />
 
             <FeaturePage
@@ -31,8 +30,6 @@ const Main = () => {
                 bgColor="bg-[#d1d1aa]"
                 textColor="text-[#34462F]"
                 hoverBg="hover:bg-[#bfc29e]"
-
-
             />
 
             <FeaturePage
@@ -43,8 +40,6 @@ const Main = () => {
                 bgColor="bg-[#006242]"
                 textColor="text-white"
                 hoverBg="hover:bg-[#00482F]"
-
-
             />
             <FeaturePage
                 image={graduateImg}
@@ -67,7 +62,6 @@ const Main = () => {
                 textColor="text-white"
                 titleSize="text-6xl"
                 hoverBg="hover:bg-[#2a3a28]"
-
             />
 
             <div className='px-[16px] md:max-w-[700px] mx-auto text-[14px] leading-[1.8] font-medium py-[32px] text-center' >

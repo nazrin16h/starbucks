@@ -6,12 +6,15 @@ import Logo from '../../Logo';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 
+
 function Header() {
     const [activeIndex, setActiveIndex] = useState(null);
     const [isOpen, setIsOpen] = useState(false);
     const navigate = useNavigate();
     const menuRef = useRef(null);
-    const location = useLocation()
+    const location = useLocation();
+    const [sidebarOpen, setSidebarOpen] = useState(false);
+
 
 
     useEffect(() => {
@@ -30,6 +33,7 @@ function Header() {
 
     const simpleHeaderPaths = ['/signup', '/signin'];
     const isSimpleHeader = simpleHeaderPaths.includes(location.pathname);
+
 
     return (
         <div className='font-helvetica' >
@@ -50,11 +54,18 @@ function Header() {
                                     <li className="inline-block items-center mt-5 pl-6">
                                         <Link
                                             to="/menu"
-                                            className={` pb-2 hover:text-[#00754A] block ${activeIndex === 0 ? "border-b-[6px] border-[#006241] pb-[32px]" : ""
+                                            className={`pb-2 hover:text-[#00754A] block ${activeIndex === 0
+                                                ? "border-b-[6px] border-[#006241] pb-[32px]"
+                                                : ""
                                                 }`}
                                             onClick={() => {
                                                 setActiveIndex(0);
-                                            }}>
+                                                // Yalnız sidebar açıqdırsa klikdə bağla
+                                                if (sidebarOpen) {
+                                                    setSidebarOpen(false);
+                                                }
+                                            }}
+                                        >
                                             Menu
                                         </Link>
                                     </li>
@@ -99,10 +110,13 @@ function Header() {
                             type="button" className="px-4 py-1 font-semibold rounded-full bg-gray-950 dark:text-gray-100 hover:bg-gray-600 transition duration-300">Join now </Link>
                     </div>
                     {/* Menyu düyməsi */}
-                    <button onClick={() => setIsOpen(!isOpen)} className="md:hidden  duration-300 transition-[max-height]  " >
-                        {isOpen ? '' : <IoMdMenu size={24} />
-                        }
+                    <button
+                        onClick={() => setIsOpen(!isOpen)}
+                        className="md:block  block lg:hidden duration-300 transition-[max-height]"
+                    >
+                        {isOpen ? '' : <IoMdMenu size={24} />}
                     </button>
+
                 </div>
 
             </header>

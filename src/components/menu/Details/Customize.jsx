@@ -185,7 +185,7 @@ function Customize({ handleCustomize, count, setCount, size }) {
     const selectedValue = e.target.value;
     const allOptions = Array.from(options)
       .map((option) => option.value)
-      .filter((value) => value.trim() !== ""); // Boş opsiyonları xaric edin
+      .filter((value) => value.trim() !== ""); 
 
     if (selectedValue.includes("No")) {
       e.target.value = "";
@@ -585,7 +585,7 @@ function Customize({ handleCustomize, count, setCount, size }) {
                                   </div>
                                 </div>
                                 {isCustomized[child.name] && (
-                                  <span className="absolute top-[-50%] transform translate-y-[50%] right-[12px] bg-white text-[14px] text-[#00754a] font-semibold px-[.4rem]">
+                                  <span className="absolute top-[-50%] cursor-pointer transform translate-y-[50%] right-[12px] bg-white text-[14px] text-[#00754a] font-semibold px-[.4rem]">
                                     Customized
                                   </span>
                                 )}
@@ -605,8 +605,8 @@ function Customize({ handleCustomize, count, setCount, size }) {
                             "Sweeteners",
                             "Cup Options",
                           ].includes(item.name);
-                          console.log(item.name);
-                          console.log(countInp);
+                          // console.log(item.name);
+                          // console.log(countInp);
 
                           if (isSpecialField) {
                             return null;

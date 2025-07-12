@@ -1,66 +1,83 @@
-import { GoSearch } from "react-icons/go";
-import { useNavigate } from 'react-router-dom';
+import { Helmet } from "react-helmet";
+import { useContext, useState } from "react";
+import { LOCATION } from "../../context/LocationContext";
+import { Link } from "react-router-dom";
+import { CiSearch } from "react-icons/ci";
 
 
 function Mapsection() {
-    const navigate = useNavigate();
+    const { selectedLocation, setSelectedLocation, locations } = useContext(LOCATION);
+    const [searchTerm, setSearchTerm] = useState("");
+
+    const filteredLocations = locations.filter((location) =>
+        location.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        location.address.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
     return (
         <div>
-            <div className="flex flex-col md:flex-row flex-1">
-                <div className="p-6 md:w-1/3">
-                    <div className="flex items-center mb-4 space-x-4">
-                        <button className="px-4 py-2 bg-green-700 text-white rounded-full font-bold">
-                            Pickup
-                        </button>
-                        <button onClick={() => navigate("/delivery")} className="px-4 py-2 border border-green-700 text-green-700 rounded-full font-bold">
-                            Delivery
-                        </button>
+            <Helmet>
+                <title>Store Locator: Starbucks Coffee Company</title>
+            </Helmet>
+
+            <div className="flex flex-col lg:flex-row">
+                {/* Sol tərəf */}
+                <div className="lg:w-[40%] px-4 py-6">
+                    <form className="flex items-center mb-4 relative" onSubmit={(e) => e.preventDefault()}>
+                        <input
+                            type="search"
+                            placeholder="Find a store"
+                            className="border-b border-gray-400 w-full py-2 px-2 outline-none focus:border-[#00754a]"
+                            autoComplete="off"
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                        />
+                        <button type="submit" className="absolute right-2"><CiSearch size={21}/></button>
+                    </form>
+
+                    <div className="space-y-3 max-h-[80vh] overflow-y-auto">
+                        {filteredLocations.length > 0 ? (
+                            filteredLocations.map((location) => (
+                                <div
+                                    key={location.id}
+                                    onClick={() => setSelectedLocation(location)}
+                                    className={`p-4  cursor-pointer ${selectedLocation.id === location.id
+                                        ? "border-[#006241] bg-[#e5efec]"
+                                        : "hover:bg-gray-100"
+                                        }`}
+                                >
+                                    <h3 className="font-bold">{location.name}</h3>
+                                    <p className="text-sm text-gray-700">{location.address}</p>
+                                    <p className="text-sm text-gray-500">{location.distance}</p>
+                                    <div className="mt-2">
+                                        <Link
+                                            to="/basket"
+                                            className="inline-block bg-[#006241] text-white text-sm font-semibold px-4 py-2 rounded-full"
+                                        >
+                                            Order here
+                                        </Link>
+                                    </div>
+                                </div>
+                            ))
+                        ) : (
+                            <p className="text-gray-500 text-sm">No locations found.</p>
+                        )}
                     </div>
-
-                    <div className="mb-4 mx-2 flex items-center gap-4 lg:w-[400px] w-full">
-                        {/* Input + Icon ilə olan hissə (yalnız bunda alt xətt var) */}
-                        <div className="relative flex-1 border-b-2 border-gray-300">
-                            <input
-                                type="text"
-                                placeholder="Find a store"
-                                className="w-full py-2 pl-2 pr-10 focus:outline-none"
-                            />
-                            <GoSearch className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
-                        </div>
-
-                        {/* Filter düyməsi (xəttdən kənarda qalır) */}
-                        <button className="whitespace-nowrap px-5 py-2 border border-green-700 text-green-700 rounded-full">
-                            Filter
-                        </button>
-                    </div>
-
-
-
-
-                    <h2 className="text-xl font-bold mb-2 text-[25px]">Zoomed out too far</h2>
-                    <p className="text-gray-500 mb-10 ">
-                        Try searching for a location or zooming in to see results.
-                    </p>
-
-                    <ul className="space-y-2 text-green-700 ">
-                        <li><a href="">Privacy Notice</a></li>
-                        <li><a href="">Terms of Use</a></li>
-                        <li><a href="">Do Not Share My Personal Information</a></li>
-                    </ul>
                 </div>
-               
 
-                {/* Map */}
-                <div className="flex-1">
+                {/* Sağ tərəf - xəritə */}
+                <div className="lg:w-[60%]">
                     <iframe
-                        title="Google Map"
-                        className="w-full h-full min-h-[500px]"
-                        src="https://maps.google.com/maps?q=usa&z=4&output=embed"
+                        src={selectedLocation.iframeSrc}
+                        allowFullScreen
                         loading="lazy"
-                    />
+                        className="w-full h-[450px] lg:h-[90vh] border-0"
+                        referrerPolicy="no-referrer-when-downgrade"
+                    ></iframe>
                 </div>
-            </div></div>
-    )
+            </div>
+        </div>
+    );
 }
 
-export default Mapsection
+export default Mapsection;
