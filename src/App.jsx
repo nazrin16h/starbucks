@@ -21,6 +21,8 @@ import Layout from './layout/Layout'
 import AuthLayout from './layout/AuthLayout'
 
 function App() {
+  console.log('Backend URL:', import.meta.env.VITE_BASE_URL);
+
   return (
     <div className=' flex flex-col min-h-screen'>
       <main className="flex-grow">
